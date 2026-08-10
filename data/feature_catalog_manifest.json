@@ -1,0 +1,60 @@
+{
+  "catalogue_type": "public-descriptive-feature-catalogue",
+  "rights_notice": "Descriptive scope only; no production or revenue claim is implied.",
+  "summary": {
+    "records": 1067,
+    "unique_feature_numbers": 710,
+    "minimum_feature_number": 1,
+    "maximum_feature_number": 725,
+    "number_gaps": [
+      520,
+      521,
+      522,
+      523,
+      524,
+      525,
+      532,
+      533,
+      534,
+      535,
+      536,
+      537,
+      697,
+      698,
+      724
+    ],
+    "redactions": [
+      "descriptive implementation detail",
+      "embedded code",
+      "vendor and device references",
+      "source filenames",
+      "contact details"
+    ]
+  },
+  "record_count": 1067,
+  "chunk_size": 50,
+  "chunks": [
+    "part-001.json",
+    "part-002.json",
+    "part-003.json",
+    "part-004.json",
+    "part-005.json",
+    "part-006.json",
+    "part-007.json",
+    "part-008.json",
+    "part-009.json",
+    "part-010.json",
+    "part-011.json",
+    "part-012.json",
+    "part-013.json",
+    "part-014.json",
+    "part-015.json",
+    "part-016.json",
+    "part-017.json",
+    "part-018.json",
+    "part-019.json",
+    "part-020.json",
+    "part-021.json",
+    "part-022.json"
+  ]
+}
