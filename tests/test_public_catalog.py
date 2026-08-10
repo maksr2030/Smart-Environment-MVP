@@ -18,6 +18,9 @@ def test_catalogue_is_complete_and_safe():
     assert all("description" not in record for record in records)
     assert all("source_file" not in record for record in records)
     assert all("source_reference" not in record for record in records)
+    assert all(record["public_description"] for record in records)
+    assert all(record["public_value"] for record in records)
+    assert all(record["capability_tags"] for record in records)
 
 
 def test_catalogue_preserves_provenance():
