@@ -18,6 +18,8 @@
 
 للاطلاع على الشرح العربي الكامل، راجع [الملخص العام للمنصة](docs/public-platform-overview.md).
 
+وللاطلاع على الميزات واحدةً تلو الأخرى، راجع [سجل الميزات العام](FEATURES.md).
+
 ## National environmental intelligence infrastructure demonstrator
 
 This repository contains a public, executable demonstration of the Smart
