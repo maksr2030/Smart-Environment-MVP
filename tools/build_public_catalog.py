@@ -40,6 +40,45 @@ def sanitize_text(value: object) -> str:
     return " ".join(text.split()).strip()
 
 
+def first_domain(value: str) -> str:
+    domains = [sanitize_text(item) for item in str(value or "").split("؛") if sanitize_text(item)]
+    return "، ".join(domains[:2]) if domains else "البيئة والموارد الطبيعية"
+
+
+def public_tags(function_type: str, title: str) -> list[str]:
+    text = f"{function_type} {title}"
+    tags = []
+    rules = [
+        (("مراقبة", "رصد", "استشعار", "كشف"), ["الرصد", "المؤشرات", "الاكتشاف"]),
+        (("تحليل", "تقييم", "قياس", "تصنيف"), ["التحليل", "التقييم", "المقارنة"]),
+        (("تنبؤ", "توقع", "إنذار", "مخاطر"), ["التنبؤ", "الاستشراف", "الإنذار المبكر"]),
+        (("إدارة", "تنظيم", "تشغيل", "تحكم"), ["الإدارة", "التنسيق", "المتابعة"]),
+        (("تخطيط", "استراتيجية", "سياس"), ["التخطيط", "السياسات", "الاستدامة"]),
+        (("قرار", "حوكمة", "تقارير", "استشارة"), ["دعم القرار", "التقارير", "الحوكمة"]),
+    ]
+    for keywords, values in rules:
+        if any(keyword in text for keyword in keywords):
+            tags.extend(values)
+    if not tags:
+        tags = ["البيانات البيئية", "التحليل المؤسسي", "دعم القرار"]
+    return list(dict.fromkeys(tags))[:5]
+
+
+def public_description(title: str, domain: str, function_type: str) -> str:
+    clean_title = sanitize_text(title) or "القدرة البيئية"
+    clean_function = sanitize_text(function_type) or "إدارة بيئية متكاملة"
+    return (
+        f"قدرة مؤسسية بعنوان «{clean_title}» تركز على {clean_function} "
+        f"ضمن مجال {first_domain(domain)}. تساعد على تنظيم المؤشرات ذات الصلة، "
+        "وتحويلها إلى مخرجات تحليلية وتقارير وتوصيات قابلة للمراجعة ودعم القرار."
+    )
+
+
+def public_value(function_type: str) -> str:
+    clean_function = sanitize_text(function_type) or "الإدارة البيئية"
+    return f"تضيف قيمة عملية إلى {clean_function} من خلال تحسين وضوح البيانات، اتساق المتابعة، وسرعة الاستجابة المؤسسية."
+
+
 def build(source: Path, target: Path, chunk_dir: Path, manifest: Path, chunk_size: int) -> None:
     payload = json.loads(source.read_text(encoding="utf-8"))
     records = []
@@ -47,6 +86,9 @@ def build(source: Path, target: Path, chunk_dir: Path, manifest: Path, chunk_siz
         record = {field: raw.get(field, "") for field in PUBLIC_FIELDS}
         for field in ("title", "english_title", "domain", "function_type", "record_type"):
             record[field] = sanitize_text(record[field])
+        record["public_description"] = public_description(record["title"], record["domain"], record["function_type"])
+        record["public_value"] = public_value(record["function_type"])
+        record["capability_tags"] = public_tags(record["function_type"], record["title"])
         record["public_scope_note"] = "وظيفة بيئية موثقة ضمن نطاق المنصة. التفاصيل التشغيلية ومصادر الإثبات محفوظة خارج الإصدار العام."
         record["public_record_id"] = raw.get("record_key") or f"PUB-{index:04d}"
         records.append(record)
