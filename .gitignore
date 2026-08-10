@@ -8,4 +8,4 @@ dist/
 .env
 .env.*
 coverage/
-
+data/feature_catalog.json
