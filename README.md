@@ -46,6 +46,9 @@ runtime. Proprietary implementation details, private due-diligence records,
 valuation files, source documents, and embedded code samples are excluded from
 this public repository.
 
+For a fuller public explanation of the platform, its domains, capability layers,
+and disclosure boundary, read [the public platform overview](docs/public-platform-overview.md).
+
 ## Architecture
 
 ```text
