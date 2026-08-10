@@ -9,7 +9,9 @@ designed for technical review, architectural discussion, and early validation.
 
 The demonstrator brings together:
 
-- a searchable feature registry covering the documented platform scope;
+- a searchable feature registry covering the documented platform scope. The
+  public index is delivered in small catalogue chunks so the complete index can
+  be reviewed without publishing protected implementation detail;
 - environmental monitoring views for air, water, biodiversity, groundwater,
   waste, climate, and protected areas;
 - a transparent risk-scoring layer;
@@ -65,4 +67,3 @@ The Smart Environment platform and its documented architecture remain the
 property of the rights holder. This repository is published for controlled
 public visibility and technical demonstration under the accompanying
 proprietary licence.
-
