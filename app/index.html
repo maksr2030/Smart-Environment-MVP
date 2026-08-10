@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="النموذج الأولي العام لمنصة البيئة الذكية" />
+    <title>منصة البيئة الذكية | MVP</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand-block">
+        <div class="brand-mark">ب</div>
+        <div>
+          <p class="eyebrow">SMART ENVIRONMENT</p>
+          <h1>منصة البيئة الذكية</h1>
+          <p class="subtitle">نموذج أولي لبنية وطنية للذكاء البيئي وصناعة القرار</p>
+        </div>
+      </div>
+      <div class="header-status">
+        <span class="status-dot"></span>
+        <span>نموذج عرض عام</span>
+        <span class="date-label" id="runtimeDate"></span>
+      </div>
+    </header>
+
+    <div class="notice">
+      هذه نسخة MVP قابلة للفحص. سجل الميزات يمثل نطاقًا وظيفيًا موثقًا، ولا يثبت وحده التشغيل الإنتاجي أو التكامل الحكومي أو الإيرادات المحققة.
+    </div>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <nav aria-label="التنقل الرئيسي">
+          <button class="nav-item active" data-view="overview">نظرة وطنية</button>
+          <button class="nav-item" data-view="monitoring">الرصد البيئي</button>
+          <button class="nav-item" data-view="simulation">مختبر المحاكاة</button>
+          <button class="nav-item" data-view="decisions">مركز القرار</button>
+          <button class="nav-item" data-view="features">سجل الميزات</button>
+        </nav>
+        <div class="sidebar-footer">
+          <span>الملكية الفكرية محفوظة</span>
+          <span>Public MVP Demonstrator</span>
+        </div>
+      </aside>
+
+      <section class="content">
+        <section class="view active" id="view-overview">
+          <div class="view-heading">
+            <div>
+              <p class="section-kicker">NATIONAL OPERATING VIEW</p>
+              <h2>البيئة كمنظومة وطنية مترابطة</h2>
+              <p>طبقة موحدة تربط السجل الوظيفي، مؤشرات الرصد، تحليل المخاطر، المحاكاة، والتوصية القابلة للتتبع.</p>
+            </div>
+            <button class="primary-button" data-view-target="features">استعراض السجل الكامل</button>
+          </div>
+
+          <div class="metrics-grid" id="overviewMetrics">
+            <div class="metric-card"><span class="metric-label">السجلات الوظيفية</span><strong id="metricRecords">...</strong><span class="metric-foot">ضمن الكتالوج العام</span></div>
+            <div class="metric-card"><span class="metric-label">أرقام الميزات الفريدة</span><strong id="metricUnique">...</strong><span class="metric-foot">مع حفظ اختلافات المصدر</span></div>
+            <div class="metric-card"><span class="metric-label">المجالات البيئية</span><strong id="metricDomains">...</strong><span class="metric-foot">موزعة على طبقات المنصة</span></div>
+            <div class="metric-card"><span class="metric-label">حالة التوثيق</span><strong>موثق</strong><span class="metric-foot">ليس إثبات تشغيل إنتاجي</span></div>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="panel wide-panel">
+              <div class="panel-heading"><div><p class="section-kicker">DOMAIN COVERAGE</p><h3>توزيع النطاق الوظيفي</h3></div><span class="panel-note">من سجل الميزات العام</span></div>
+              <div id="domainBars" class="domain-bars"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-heading"><div><p class="section-kicker">CONTROL PLANE</p><h3>طبقات النموذج الأولي</h3></div></div>
+              <div class="stack-list">
+                <div><span class="stack-index">01</span><span><b>السجل والأدلة</b><small>هوية الميزة ومصدرها وحالة توثيقها</small></span></div>
+                <div><span class="stack-index">02</span><span><b>الرصد والتحليل</b><small>قراءة الإشارات وتصنيف المخاطر</small></span></div>
+                <div><span class="stack-index">03</span><span><b>المحاكاة والتنبؤ</b><small>اختبار الضغط والتدخل قبل القرار</small></span></div>
+                <div><span class="stack-index">04</span><span><b>القرار والتتبع</b><small>توصية مع أثر ومصدر وافتراضات</small></span></div>
+              </div>
+            </article>
+          </div>
+
+          <article class="panel callout-panel">
+            <div class="callout-icon">01</div>
+            <div><p class="section-kicker">DESIGN PRINCIPLE</p><h3>القيمة في الترابط، لا في وظيفة منفردة</h3><p>يعرض هذا النموذج كيف يمكن تحويل نطاق بيئي واسع إلى مسار موحد يبدأ من الإشارة، ويمر بالتحليل والمحاكاة، وينتهي بقرار موثق قابل للمراجعة.</p></div>
+            <button class="secondary-button" data-view-target="simulation">تشغيل سيناريو</button>
+          </article>
+        </section>
+
+        <section class="view" id="view-monitoring">
+          <div class="view-heading"><div><p class="section-kicker">ENVIRONMENTAL MONITORING</p><h2>الرصد والتحليل الوطني</h2><p>بيانات عرض اصطناعية لتوضيح طريقة قراءة المؤشرات وربطها بالمخاطر.</p></div><span class="live-chip"><span class="status-dot"></span>تحديث تجريبي</span></div>
+          <div class="monitoring-grid" id="monitoringGrid"></div>
+          <article class="panel">
+            <div class="panel-heading"><div><p class="section-kicker">REGIONAL OPERATING VIEW</p><h3>لوحة المناطق</h3></div><span class="panel-note">مؤشرات تمثيلية وليست بيانات حكومية</span></div>
+            <div class="region-grid" id="regionGrid"></div>
+          </article>
+        </section>
+
+        <section class="view" id="view-simulation">
+          <div class="view-heading"><div><p class="section-kicker">SCENARIO LABORATORY</p><h2>مختبر المحاكاة</h2><p>اختبر أثر الضغوط والتدخلات البيئية قبل صياغة التوصية.</p></div><span class="model-badge">نموذج شفاف قابل للمراجعة</span></div>
+          <div class="simulation-layout">
+            <article class="panel controls-panel">
+              <div class="panel-heading"><div><p class="section-kicker">SCENARIO INPUTS</p><h3>معلمات السيناريو</h3></div></div>
+              <label class="control-row"><span>زيادة ضغط التلوث</span><output id="pollutionValue">20%</output><input id="pollutionInput" type="range" min="0" max="60" value="20" /></label>
+              <label class="control-row"><span>إجهاد المياه</span><output id="waterValue">15%</output><input id="waterInput" type="range" min="0" max="60" value="15" /></label>
+              <label class="control-row"><span>تدخل الحماية والاستعادة</span><output id="conservationValue">25%</output><input id="conservationInput" type="range" min="0" max="60" value="25" /></label>
+              <button id="runSimulation" class="primary-button full-button">تشغيل المحاكاة</button>
+              <p class="small-note">المعادلات في هذا النموذج إرشادية لأغراض العرض، وليست نموذجًا علميًا معتمدًا لاتخاذ قرار تشغيلي.</p>
+            </article>
+            <article class="panel results-panel">
+              <div class="panel-heading"><div><p class="section-kicker">MODEL OUTPUT</p><h3>نتيجة السيناريو</h3></div><span id="simulationStatus" class="status-label">جاهز للتشغيل</span></div>
+              <div class="result-hero"><span>مؤشر المخاطر المركب</span><strong id="riskOutput">--</strong><small id="riskText">شغّل السيناريو لعرض النتيجة</small></div>
+              <div class="result-grid"><div><span>قابلية عكس الضرر</span><strong id="reversibilityOutput">--</strong></div><div><span>مستوى التدخل</span><strong id="interventionOutput">--</strong></div><div><span>أولوية القرار</span><strong id="priorityOutput">--</strong></div><div><span>درجة الثقة</span><strong id="confidenceOutput">إرشادية</strong></div></div>
+              <div id="simulationActions" class="action-list"><p>سيظهر هنا ملخص الأثر والتوصيات بعد التشغيل.</p></div>
+            </article>
+          </div>
+          <article class="panel trace-panel"><div class="panel-heading"><div><p class="section-kicker">DECISION TRACE</p><h3>سلسلة الإثبات</h3></div></div><div id="traceList" class="trace-list"></div></article>
+        </section>
+
+        <section class="view" id="view-decisions">
+          <div class="view-heading"><div><p class="section-kicker">DECISION SUPPORT</p><h2>مركز القرار</h2><p>تجميع الإشارة والتحليل والتوصية في مذكرة قرار واحدة قابلة للمراجعة.</p></div><button id="refreshBrief" class="secondary-button">تحديث مذكرة القرار</button></div>
+          <article class="decision-brief panel" id="decisionBrief"></article>
+        </section>
+
+        <section class="view" id="view-features">
+          <div class="view-heading"><div><p class="section-kicker">FEATURE AND EVIDENCE REGISTRY</p><h2>سجل الميزات</h2><p>استعراض كامل للسجل الوصفي مع المحافظة على معرف المصدر وحالة التوثيق.</p></div><span id="catalogStatus" class="status-label">جاري تحميل السجل</span></div>
+          <div class="filter-panel panel">
+            <label><span>بحث</span><input id="featureSearch" type="search" placeholder="ابحث باسم الميزة أو الوصف" /></label>
+            <label><span>المجال</span><select id="domainFilter"><option value="">كل المجالات</option></select></label>
+            <label><span>نوع الوظيفة</span><select id="typeFilter"><option value="">كل الأنواع</option></select></label>
+            <button id="clearFilters" class="secondary-button">مسح التصفية</button>
+          </div>
+          <div class="registry-meta"><span id="resultCount">0 سجل</span><span>الصفحة <b id="pageNumber">1</b> من <b id="pageTotal">1</b></span><div class="pagination"><button id="prevPage" class="icon-button">السابق</button><button id="nextPage" class="icon-button">التالي</button></div></div>
+          <div class="table-wrap panel"><table><thead><tr><th>المعرف</th><th>اسم الميزة</th><th>المجال</th><th>نوع الوظيفة</th><th>حالة التوثيق</th><th>المصدر</th></tr></thead><tbody id="featureTable"></tbody></table></div>
+          <article id="featureDetail" class="panel detail-panel"><p>اختر سجلًا لعرض تفاصيله.</p></article>
+        </section>
+      </section>
+    </main>
+
+    <footer class="footer">Smart Environment MVP · Public Demonstrator · جميع بيانات الرصد المعروضة اصطناعية لأغراض العرض</footer>
+    <script src="./app.js" defer></script>
+  </body>
+</html>
+
