@@ -9,29 +9,35 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 
 
 PUBLIC_FIELDS = (
-    "source_family",
-    "source_file",
-    "source_reference",
     "feature_id",
     "title",
     "english_title",
     "record_type",
     "domain",
     "function_type",
-    "description",
-    "objectives",
-    "benefits",
-    "audience",
-    "reuse_note",
-    "implementation_status",
-    "commercial_role",
     "record_key",
-    "comparison_note",
 )
+
+EMAIL_RE = re.compile(r"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}", re.IGNORECASE)
+URL_RE = re.compile(r"https?://\S+", re.IGNORECASE)
+CODE_MARKERS_RE = re.compile(
+    r"(?:كود البرنامج الموسع|كود البرنامج|الكود المدمج|رسالة حفظ الحقوق|code sample).*",
+    re.IGNORECASE | re.DOTALL,
+)
+
+
+def sanitize_text(value: object) -> str:
+    """Remove embedded code, contact details, and implementation URLs."""
+    text = str(value or "")
+    text = CODE_MARKERS_RE.split(text, maxsplit=1)[0]
+    text = URL_RE.sub("[رابط محذوف من النسخة العامة]", text)
+    text = EMAIL_RE.sub("[بريد محذوف من النسخة العامة]", text)
+    return " ".join(text.split()).strip()
 
 
 def build(source: Path, target: Path) -> None:
@@ -39,6 +45,9 @@ def build(source: Path, target: Path) -> None:
     records = []
     for index, raw in enumerate(payload.get("features", []), start=1):
         record = {field: raw.get(field, "") for field in PUBLIC_FIELDS}
+        for field in ("title", "english_title", "domain", "function_type", "record_type"):
+            record[field] = sanitize_text(record[field])
+        record["public_scope_note"] = "وظيفة بيئية موثقة ضمن نطاق المنصة. التفاصيل التشغيلية ومصادر الإثبات محفوظة خارج الإصدار العام."
         record["public_record_id"] = raw.get("record_key") or f"PUB-{index:04d}"
         records.append(record)
 
@@ -53,7 +62,7 @@ def build(source: Path, target: Path) -> None:
             "minimum_feature_number": summary.get("min_feature_number"),
             "maximum_feature_number": summary.get("max_feature_number"),
             "number_gaps": summary.get("number_gaps", []),
-            "source_families": sorted({record["source_family"] for record in records if record["source_family"]}),
+            "redactions": ["descriptive implementation detail", "embedded code", "vendor and device references", "source filenames", "contact details"],
         },
         "features": records,
     }
@@ -78,4 +87,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
