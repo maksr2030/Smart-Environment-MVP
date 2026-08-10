@@ -18,3 +18,12 @@ def test_catalogue_preserves_provenance():
     assert first["public_record_id"]
     assert first["public_scope_note"]
     assert first["title"]
+
+
+def test_chunked_public_catalogue_is_complete():
+    manifest = json.loads(Path("data/feature_catalog_manifest.json").read_text(encoding="utf-8"))
+    records = []
+    for chunk_name in manifest["chunks"]:
+        records.extend(json.loads(Path("data/catalogue", chunk_name).read_text(encoding="utf-8")))
+    assert len(records) == manifest["record_count"] == 1067
+    assert len({record["public_record_id"] for record in records}) == 1067
