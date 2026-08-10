@@ -185,8 +185,8 @@ function renderFeatureTable() {
 function renderFeatureDetail() {
   const feature = state.selectedFeature;
   if (!feature) { $("#featureDetail").innerHTML = "<p>اختر سجلًا لعرض تفاصيله.</p>"; return; }
-  const fields = [["المعرف العام", feature.record_key || feature.public_record_id], ["نوع السجل", feature.record_type], ["المجال", feature.domain], ["نوع الوظيفة", feature.function_type], ["حالة العرض العام", "مدرج في فهرس النطاق الوظيفي للمنصة"], ["حدود الإصدار العام", feature.public_scope_note]];
-  $("#featureDetail").innerHTML = `<p class="section-kicker">FEATURE RECORD</p><h3 class="detail-title">${escapeHtml(feature.title || "غير مسمى")}</h3><div class="detail-grid">${fields.map(([label, value]) => `<div class="detail-item"><b>${label}</b><span>${escapeHtml(value || "غير متوفر في السجل")}</span></div>`).join("")}</div>`;
+  const fields = [["المعرف العام", feature.record_key || feature.public_record_id], ["نوع السجل", feature.record_type], ["المجال", feature.domain], ["نوع الوظيفة", feature.function_type], ["الوصف العام", feature.public_description], ["القيمة الوظيفية", feature.public_value], ["تصنيفات القدرة", (feature.capability_tags || []).join(" · ")], ["حدود الإصدار العام", feature.public_scope_note]];
+  $("#featureDetail").innerHTML = `<p class="section-kicker">PUBLIC FEATURE PROFILE</p><h3 class="detail-title">${escapeHtml(feature.title || "غير مسمى")}</h3><div class="detail-grid">${fields.map(([label, value]) => `<div class="detail-item"><b>${label}</b><span>${escapeHtml(value || "غير متوفر في السجل")}</span></div>`).join("")}</div>`;
 }
 
 function initRegistry() {
