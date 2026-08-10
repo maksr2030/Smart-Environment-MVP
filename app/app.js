@@ -209,10 +209,21 @@ function init() {
   $("#runSimulation").addEventListener("click", runSimulation);
   $("#refreshBrief").addEventListener("click", () => renderDecisionBrief());
   updateRangeLabels();
-  fetch("../data/feature_catalog.json")
-    .then((response) => { if (!response.ok) throw new Error("catalogue unavailable"); return response.json(); })
+  loadPublicCatalogue()
     .then((catalogue) => { state.catalogue = catalogue; renderOverview(); initRegistry(); })
     .catch((error) => { $("#catalogStatus").textContent = "تعذر تحميل السجل"; console.error(error); });
+}
+
+async function loadPublicCatalogue() {
+  const manifestResponse = await fetch("../data/feature_catalog_manifest.json");
+  if (!manifestResponse.ok) throw new Error("catalogue manifest unavailable");
+  const manifest = await manifestResponse.json();
+  const chunks = await Promise.all(manifest.chunks.map(async (chunkName) => {
+    const response = await fetch(`../data/catalogue/${chunkName}`);
+    if (!response.ok) throw new Error(`catalogue chunk unavailable: ${chunkName}`);
+    return response.json();
+  }));
+  return { summary: manifest.summary, features: chunks.flat() };
 }
 
 document.addEventListener("DOMContentLoaded", init);
