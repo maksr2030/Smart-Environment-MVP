@@ -40,7 +40,7 @@ def sanitize_text(value: object) -> str:
     return " ".join(text.split()).strip()
 
 
-def build(source: Path, target: Path) -> None:
+def build(source: Path, target: Path, chunk_dir: Path, manifest: Path, chunk_size: int) -> None:
     payload = json.loads(source.read_text(encoding="utf-8"))
     records = []
     for index, raw in enumerate(payload.get("features", []), start=1):
@@ -72,6 +72,34 @@ def build(source: Path, target: Path) -> None:
         encoding="utf-8",
     )
 
+    chunk_dir.mkdir(parents=True, exist_ok=True)
+    chunk_names = []
+    for offset in range(0, len(records), chunk_size):
+        chunk_number = (offset // chunk_size) + 1
+        chunk_name = f"part-{chunk_number:03d}.json"
+        (chunk_dir / chunk_name).write_text(
+            json.dumps(records[offset : offset + chunk_size], ensure_ascii=False, separators=(",", ":")) + "\n",
+            encoding="utf-8",
+        )
+        chunk_names.append(chunk_name)
+    manifest.parent.mkdir(parents=True, exist_ok=True)
+    manifest.write_text(
+        json.dumps(
+            {
+                "catalogue_type": public_payload["catalogue_type"],
+                "rights_notice": public_payload["rights_notice"],
+                "summary": public_payload["summary"],
+                "record_count": len(records),
+                "chunk_size": chunk_size,
+                "chunks": chunk_names,
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
 
 def main() -> None:
     parser = argparse.ArgumentParser()
@@ -81,8 +109,11 @@ def main() -> None:
         default=Path("../outputs/complete_feature_register_data.json"),
     )
     parser.add_argument("--target", type=Path, default=Path("data/feature_catalog.json"))
+    parser.add_argument("--chunk-dir", type=Path, default=Path("data/catalogue"))
+    parser.add_argument("--manifest", type=Path, default=Path("data/feature_catalog_manifest.json"))
+    parser.add_argument("--chunk-size", type=int, default=50)
     args = parser.parse_args()
-    build(args.source, args.target)
+    build(args.source, args.target, args.chunk_dir, args.manifest, args.chunk_size)
 
 
 if __name__ == "__main__":
