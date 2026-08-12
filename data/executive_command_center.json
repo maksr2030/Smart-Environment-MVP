@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "data_classification": "synthetic_public_demo",
+  "title_ar": "مركز القيادة التنفيذي الوطني",
+  "title_en": "Executive National Command Center",
+  "disclaimer_ar": "جميع المؤشرات التشغيلية في هذه الشاشة اصطناعية لأغراض عرض النموذج الأولي، ولا تمثل بيانات حكومية أو قياسات وطنية فعلية أو قرارات تشغيلية معتمدة.",
+  "strategic_priorities": [
+    {
+      "id": "SP-01",
+      "ar": "الأمن المائي والمرونة المائية",
+      "en": "Water Security and Resilience",
+      "score": 64,
+      "trend": "watch",
+      "focus_ar": "إجهاد المياه الجوفية، جودة المياه، كفاءة الاستخدام والاستجابة المبكرة"
+    },
+    {
+      "id": "SP-02",
+      "ar": "التنوع الأحيائي والموائل الطبيعية",
+      "en": "Biodiversity and Natural Habitats",
+      "score": 71,
+      "trend": "stable",
+      "focus_ar": "سلامة الموائل، الأنواع المهددة، الأنواع الغازية واستعادة التوازن البيئي"
+    },
+    {
+      "id": "SP-03",
+      "ar": "جودة الهواء والمناخ والانبعاثات",
+      "en": "Air Quality, Climate and Emissions",
+      "score": 58,
+      "trend": "watch",
+      "focus_ar": "الرصد، التعرض المناخي، الانبعاثات، التنبؤ والإنذار المبكر"
+    },
+    {
+      "id": "SP-04",
+      "ar": "النفايات والاقتصاد الدائري",
+      "en": "Waste and Circular Economy",
+      "score": 67,
+      "trend": "stable",
+      "focus_ar": "تدفقات النفايات، الاسترداد، التدوير، النفايات الإلكترونية وتقليل الأثر"
+    },
+    {
+      "id": "SP-05",
+      "ar": "التربة والزراعة والغطاء النباتي",
+      "en": "Soil, Agriculture and Vegetation",
+      "score": 61,
+      "trend": "watch",
+      "focus_ar": "صحة التربة، التصحر، الغطاء النباتي والاستدامة الزراعية"
+    },
+    {
+      "id": "SP-06",
+      "ar": "الاستجابة البيئية والحوكمة",
+      "en": "Environmental Response and Governance",
+      "score": 73,
+      "trend": "stable",
+      "focus_ar": "التنسيق، التتبع، الشفافية، القرار القابل للمراجعة والتعلم المؤسسي"
+    }
+  ],
+  "executive_pipeline": [
+    {"step": 1, "ar": "استقبال الإشارة", "en": "Signal Intake"},
+    {"step": 2, "ar": "تجميع الأدلة", "en": "Evidence Aggregation"},
+    {"step": 3, "ar": "تقييم المخاطر", "en": "Risk Assessment"},
+    {"step": 4, "ar": "تفعيل القدرات", "en": "Capability Activation"},
+    {"step": 5, "ar": "محاكاة التدخل", "en": "Intervention Simulation"},
+    {"step": 6, "ar": "صياغة التوصية", "en": "Recommendation"},
+    {"step": 7, "ar": "قرار بشري مسؤول", "en": "Responsible Human Decision"},
+    {"step": 8, "ar": "تتبع الأثر والتعلم", "en": "Impact Trace and Learning"}
+  ]
+}
