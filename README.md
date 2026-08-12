@@ -11,14 +11,22 @@
 والمياه الجوفية، الهواء والمناخ والانبعاثات، التلوث والنفايات، الزراعة والتربة،
 التصحر والغطاء النباتي، التخطيط والبنية التحتية، والحوكمة والبحث ودعم القرار.
 
-يضم الفهرس العام وصفًا مختصرًا لجميع السجلات الوظيفية المتاحة في نطاق المنصة،
-مع اسم كل ميزة ومعرفها ومجالها ونوعها ووصفها العام وقيمتها الوظيفية وتصنيفاتها.
-أما الأكواد والتفاصيل التنفيذية ومصادر الإثبات الداخلية فليست جزءًا من الإصدار
-العام.
+يضم الفهرس العام في النسخة الحالية 1,104 سجلات وصفية عامة، تمثل 745 رقم ميزة
+تاريخياً فريداً. أضيف إلى قاعدة الإصدار السابق ملحق استرداد تاريخي يضم 37
+سجلاً تمثل 35 رقماً فريداً من 837 حتى 1002. الترقيم المسترد فوق 725 متقطع،
+وتُحفظ التعارضات التاريخية كسجلات مستقلة ولا يتم اختلاق عناصر لملء الأرقام
+غير المستردة.
+
+يعرض الإصدار العام اسم الميزة ومعرفها ومجالها ونوعها ووصفها العام وقيمتها
+الوظيفية وتصنيفاتها وحالة الاسترداد حيث تنطبق. أما الأكواد والتفاصيل التنفيذية
+وأسماء ملفات الإثبات الداخلية وبيانات الاتصال فليست جزءًا من الإصدار العام.
+
+حالة الاسترداد تعني توثيق وجود السجل ضمن المواد التاريخية المتاحة، ولا تعني
+أن كل وظيفة منشورة إنتاجياً أو متصلة بأنظمة حكومية فعلية.
 
 للاطلاع على الشرح العربي الكامل، راجع [الملخص العام للمنصة](docs/public-platform-overview.md).
 
-وللاطلاع على الميزات واحدةً تلو الأخرى، راجع [سجل الميزات العام](FEATURES.md).
+وللاطلاع على السجل العام وملحق الاسترداد، راجع [سجل الميزات العام](FEATURES.md).
 
 ## National environmental intelligence infrastructure demonstrator
 
@@ -26,6 +34,12 @@ This repository contains a public, executable demonstration of the Smart
 Environment platform as a national environmental intelligence infrastructure.
 It is intentionally separated from the private source portfolio and is
 designed for technical review, architectural discussion, and early validation.
+
+The current public catalogue contains 1,104 descriptive records representing
+745 unique historical feature numbers. A recovered historical delta adds 37
+records representing 35 unique feature numbers from 837 through 1002. Sparse
+historical numbering is preserved as recovered, numbering conflicts are retained
+as separate records, and missing entries are not invented.
 
 The demonstrator brings together:
 
@@ -40,8 +54,9 @@ The demonstrator brings together:
 - a provenance-aware presentation of the documented feature records.
 
 The current repository is an MVP demonstrator. The catalogue records documented
-functional scope; it must not be interpreted as proof that every function is
-already deployed in production or connected to government systems.
+functional scope and recovery status; it must not be interpreted as proof that
+every function is already deployed in production or connected to government
+systems.
 
 ## Run locally
 
@@ -61,10 +76,11 @@ No external packages or internet connection are required for the dashboard.
 
 ## Public release boundary
 
-The public release includes descriptive feature metadata and the demonstrator
-runtime. Proprietary implementation details, private due-diligence records,
-valuation files, source documents, and embedded code samples are excluded from
-this public repository.
+The public release includes descriptive feature metadata, recovery-status labels
+where applicable, and the demonstrator runtime. Proprietary implementation
+details, private due-diligence records, valuation files, source documents,
+internal evidence filenames, contact details, and embedded code samples are
+excluded from this public repository.
 
 For a fuller public explanation of the platform, its domains, capability layers,
 and disclosure boundary, read [the public platform overview](docs/public-platform-overview.md).
