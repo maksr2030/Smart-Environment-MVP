@@ -26,10 +26,23 @@ def main():
         page.goto(SITE_URL, wait_until="networkidle", timeout=120000)
         page.wait_for_url("**/command/", timeout=30000)
         page.wait_for_selector("#commandStatus", timeout=30000)
-        page.wait_for_function("document.querySelector('#commandStatus')?.textContent.includes('جاهز')", timeout=30000)
+        page.wait_for_function("document.querySelector('#commandStatus')?.textContent.includes('قابل للفحص')", timeout=30000)
         assert page.locator("#commandRecordCount").inner_text().strip() not in {"", "--", "٠"}
         assert page.locator("#commandCapabilityCount").inner_text().strip() not in {"", "--", "٠"}
         assert page.locator("#commandMissionCount").inner_text().strip() not in {"", "--", "٠"}
+
+        page.wait_for_selector("#evidenceMatrix .evidence-unit", timeout=30000)
+        assert page.locator("#maturityDocumentedCount").inner_text().strip() not in {"", "--", "٠"}
+        assert page.locator("#maturityImplementedCount").inner_text().strip() not in {"", "--", "٠"}
+        assert page.locator("#maturitySyntheticCount").inner_text().strip() not in {"", "--", "٠"}
+        assert page.locator("#maturityPlannedCount").inner_text().strip() not in {"", "--", "٠"}
+        all_evidence_count = page.locator("#evidenceMatrix .evidence-unit").count()
+        assert all_evidence_count >= 12
+
+        page.locator('#evidenceFilters button[data-status="implemented_mvp"]').click()
+        implemented_count = page.locator("#evidenceMatrix .evidence-unit").count()
+        assert implemented_count >= 5
+        assert page.locator('#evidenceMatrix .evidence-unit[data-evidence-status="implemented_mvp"]').count() == implemented_count
 
         page.locator('a[href="../app/"]').first.click()
         page.wait_for_url("**/app/", timeout=30000)
@@ -53,7 +66,7 @@ def main():
     if console_errors:
         raise AssertionError(f"Browser console errors: {console_errors}")
 
-    print(f"PASS live browser smoke test: {SITE_URL}")
+    print(f"PASS live browser smoke test with evidence maturity coverage: {SITE_URL}")
 
 
 if __name__ == "__main__":
