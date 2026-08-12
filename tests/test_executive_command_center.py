@@ -55,6 +55,6 @@ def test_pages_workflow_is_restricted_to_main_for_push_deployments():
     assert "branches:" in workflow and "- main" in workflow
     assert "pages: write" in workflow
     assert "id-token: write" in workflow
-    assert "actions/configure-pages@v5" in workflow
+    assert "actions/configure-pages@v6" in workflow
     assert "actions/upload-pages-artifact@v4" in workflow
     assert "actions/deploy-pages@v4" in workflow
