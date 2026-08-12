@@ -1,0 +1,39 @@
+name: Catalogue Validation
+
+on:
+  push:
+    branches:
+      - "mvp-recovered-catalogue-*"
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate public catalogue
+        run: |
+          python3 - <<'PY'
+          import runpy
+
+          module = runpy.run_path("tests/test_public_catalog.py")
+          tests = sorted(
+              (name, value)
+              for name, value in module.items()
+              if name.startswith("test_") and callable(value)
+          )
+          for name, test in tests:
+              test()
+              print(f"PASS {name}")
+          print(f"Validated {len(tests)} catalogue tests")
+          PY
+
+      - name: Validate JavaScript syntax
+        run: node --check app/app.js
