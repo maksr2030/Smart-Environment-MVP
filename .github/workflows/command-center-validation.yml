@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "mvp-live-command-center-*"
+      - "mvp-evidence-maturity-dashboard-*"
   pull_request:
     branches:
       - main
@@ -27,6 +28,7 @@ jobs:
               "tests/test_capability_architecture.py",
               "tests/test_mission_runtime.py",
               "tests/test_executive_command_center.py",
+              "tests/test_evidence_maturity.py",
           ]
           total = 0
           for path in paths:
