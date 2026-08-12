@@ -1,0 +1,37 @@
+name: Functional Mission Workspace Validation
+
+on:
+  push:
+    branches:
+      - "mvp-functional-modules-*"
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate-functional-modules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate catalogue
+        run: |
+          python3 - <<'PY'
+          import runpy
+          for path in ["tests/test_public_catalog.py", "tests/test_capability_architecture.py", "tests/test_mission_runtime.py"]:
+              module = runpy.run_path(path)
+              tests = sorted((name, value) for name, value in module.items() if name.startswith("test_") and callable(value))
+              for name, test in tests:
+                  test()
+                  print(f"PASS {path}::{name}")
+          PY
+
+      - name: Validate JavaScript syntax
+        run: |
+          node --check app/app.js
+          node --check app/capabilities.js
+          node --check app/modules.js
