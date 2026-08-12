@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="السجل التاريخي المسترد لمنصة البيئة الذكية" />
+  <title>السجل التاريخي المسترد | منصة البيئة الذكية</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    .recovery-page{max-width:1500px;margin:auto;padding:34px 5vw 70px}.recovery-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:20px}.recovery-head h2{color:var(--navy);margin-bottom:5px}.recovery-head p{color:var(--muted);font-size:12px}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:16px}.filter{display:grid;grid-template-columns:minmax(220px,2fr) minmax(150px,1fr) minmax(180px,1fr) auto;gap:12px;align-items:end;margin-bottom:14px}.filter label{display:grid;gap:4px;color:var(--muted);font-size:10px}.filter input,.filter select{height:39px;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--text);font:inherit;font-size:12px}.warning{padding:12px 14px;border:1px solid #e7d7b8;border-radius:9px;background:#fff9ee;color:#74531b;font-size:11px;margin-bottom:14px}.grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,.75fr);gap:14px}.detail{position:sticky;top:15px;align-self:start;max-height:78vh;overflow:auto}.detail h3{color:var(--navy);font-size:18px}.item{padding:10px 0;border-bottom:1px solid var(--line)}.item b,.item span{display:block}.item b{font-size:10px;color:var(--teal)}.item span{font-size:11px;color:var(--muted)}.chip{display:inline-flex;padding:4px 8px;border-radius:99px;background:#eef8f5;color:var(--teal);font-weight:700}.back-link{text-decoration:none}.registry-meta{margin-top:2px}.table-wrap table{min-width:920px}@media(max-width:900px){.summary{grid-template-columns:repeat(2,1fr)}.filter{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.detail{position:static;max-height:none}}@media(max-width:620px){.summary,.filter{grid-template-columns:1fr}.recovery-head{display:block}.back-link{display:inline-block;margin-top:10px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-block"><div class="brand-mark">ب</div><div><p class="eyebrow">SMART ENVIRONMENT</p><h1>منصة البيئة الذكية</h1><p class="subtitle">Historical Recovery Registry</p></div></div>
+    <div class="header-status"><span class="status-dot"></span><span>سجل استرداد عام آمن</span></div>
+  </header>
+  <div class="notice">هذه الطبقة توثق الميزات المستردة من محادثات التطوير التاريخية. لا تثبت وحدها التشغيل الإنتاجي أو التكامل الحكومي أو الإيرادات، ولا تنشر الأكواد أو ملفات الإثبات الخاصة.</div>
+  <main class="recovery-page">
+    <div class="recovery-head"><div><p class="section-kicker">HISTORICAL RECOVERY REGISTRY</p><h2>السجل التاريخي المسترد</h2><p>الرقم التاريخي مرتبط بالتاريخ والفرع ودرجة الإثبات، لأن بعض الأرقام أُعيد استخدامها في فروع مختلفة.</p></div><a class="secondary-button back-link" href="./">العودة إلى الـMVP الرئيسي</a></div>
+    <div class="warning">قاعدة الإثبات: A = استرداد مباشر من المحادثة الأصلية، B = استرداد تاريخي جزئي/موثوق، C = وجود الرقم أو التسلسل مثبت والعنوان الكامل غير مسترد، D = مرجع ثانوي بانتظار تأكيد أقوى. لا يتم دمج السجلات لمجرد تطابق الرقم.</div>
+    <div class="summary">
+      <div class="metric-card"><span class="metric-label">السجلات التاريخية</span><strong id="records">—</strong><span class="metric-foot">المستردة في النسخة الحالية</span></div>
+      <div class="metric-card"><span class="metric-label">الأرقام الرقمية الفريدة</span><strong id="unique">—</strong><span class="metric-foot">مع حفظ الفروع المتعارضة</span></div>
+      <div class="metric-card"><span class="metric-label">أعلى رقم مسترد</span><strong id="high">—</strong><span class="metric-foot">الحد التاريخي المؤكد حالياً</span></div>
+      <div class="metric-card"><span class="metric-label">فروع الاسترداد</span><strong id="branches">—</strong><span class="metric-foot">التاريخ + الفرع + الرقم</span></div>
+    </div>
+    <div class="panel filter">
+      <label><span>بحث</span><input id="search" type="search" placeholder="رقم، عنوان، فرع، مجال..." /></label>
+      <label><span>درجة الإثبات</span><select id="evidence"><option value="">كل الدرجات</option><option value="A">A · مباشر</option><option value="B">B · جزئي</option><option value="C">C · وجود/تسلسل</option><option value="D">D · ثانوي</option></select></label>
+      <label><span>المجال</span><select id="domain"><option value="">كل المجالات</option></select></label>
+      <button id="clear" class="secondary-button">مسح التصفية</button>
+    </div>
+    <div class="registry-meta"><span id="count">0 سجل</span><span>الصفحة <b id="page">1</b> من <b id="pages">1</b></span><div class="pagination"><button id="prev" class="icon-button">السابق</button><button id="next" class="icon-button">التالي</button></div></div>
+    <div class="grid">
+      <div class="table-wrap panel"><table><thead><tr><th>الرقم</th><th>الإثبات</th><th>اسم الميزة</th><th>المجال</th><th>التاريخ</th><th>الفرع</th></tr></thead><tbody id="table"></tbody></table></div>
+      <article id="detail" class="panel detail"><p>اختر سجلاً لعرض تفاصيله التاريخية.</p></article>
+    </div>
+  </main>
+  <footer class="footer">Smart Environment MVP · Historical Recovery Layer · Public-safe metadata only</footer>
+<script>
+const S={all:[],filtered:[],page:1,size:25,selected:null,manifest:null};const $=s=>document.querySelector(s);const $$=s=>Array.from(document.querySelectorAll(s));const H=v=>String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");const labels={A:"A · مباشر",B:"B · جزئي",C:"C · وجود/تسلسل",D:"D · ثانوي"};
+function domains(){const x=new Set;S.all.forEach(r=>String(r.d||"").split("؛").map(v=>v.trim()).filter(Boolean).forEach(v=>x.add(v)));return[...x].sort((a,b)=>a.localeCompare(b,"ar"))}
+function apply(){const t=$("#search").value.trim().toLocaleLowerCase("ar"),e=$("#evidence").value,d=$("#domain").value;S.filtered=S.all.filter(r=>{const hay=[r.n,r.id,r.ar,r.en,r.dt,r.b,r.d].join(" ").toLocaleLowerCase("ar"),ds=String(r.d||"").split("؛").map(v=>v.trim());return(!t||hay.includes(t))&&(!e||r.e===e)&&(!d||ds.includes(d))});S.page=1;render()}
+function render(){const p=Math.max(1,Math.ceil(S.filtered.length/S.size));S.page=Math.max(1,Math.min(S.page,p));const a=(S.page-1)*S.size,rows=S.filtered.slice(a,a+S.size);$("#count").textContent=`${S.filtered.length.toLocaleString("ar-SA")} سجل`;$("#page").textContent=S.page;$("#pages").textContent=p;$("#prev").disabled=S.page<=1;$("#next").disabled=S.page>=p;$("#table").innerHTML=rows.map(r=>`<tr data-k="${H(r._k)}" class="${S.selected?._k===r._k?"selected":""}"><td>${H(r.n)}</td><td><span class="chip">${H(r.e)}</span></td><td class="feature-title">${H(r.ar||r.en||"العنوان غير مسترد")}</td><td>${H(r.d||"غير مصنف")}</td><td>${H(r.dt||"غير مكتمل")}</td><td>${H(r.b||"غير محدد")}</td></tr>`).join("")||'<tr><td colspan="6">لا توجد سجلات مطابقة.</td></tr>';$$('#table tr[data-k]').forEach(row=>row.addEventListener('click',()=>{S.selected=S.all.find(r=>r._k===row.dataset.k);render();detail()}))}
+function detail(){const r=S.selected;if(!r){$("#detail").innerHTML="<p>اختر سجلاً لعرض تفاصيله التاريخية.</p>";return}const f=[["الرقم التاريخي",r.n],["الرقم الرقمي",r.id],["درجة الإثبات",labels[r.e]||r.e],["العنوان الإنجليزي",r.en],["المجال",r.d],["التاريخ/الوقت",r.dt],["فرع الاسترداد",r.b],["حدود الإثبات",r.e==="A"?"نص/عنوان مسترد مباشرة من المحادثة التاريخية.":r.e==="B"?"استرداد تاريخي جزئي أو مباشر يحتاج استكمالاً.":r.e==="C"?"وجود الرقم أو تسلسله مثبت، والعنوان الكامل غير مسترد.":"مرجع استرداد ثانوي بانتظار تأكيد أقوى من المحادثة الأصلية."]];$("#detail").innerHTML=`<p class="section-kicker">HISTORICAL FEATURE PROFILE</p><h3>${H(r.ar||r.en||"العنوان غير مسترد")}</h3>${f.map(([a,b])=>`<div class="item"><b>${H(a)}</b><span>${H(b||"غير متوفر")}</span></div>`).join("")}`}
+async function load(){const m=await fetch("../data/historical_recovery_manifest.json");if(!m.ok)throw new Error("manifest unavailable");S.manifest=await m.json();const parts=await Promise.all(S.manifest.chunks.map(async n=>{const r=await fetch(`../data/historical-recovery/${n}`);if(!r.ok)throw new Error(`chunk unavailable: ${n}`);return r.json()}));S.all=parts.flat().map((r,i)=>({...r,_k:`HR-${String(i+1).padStart(4,"0")}`}));S.filtered=S.all;const x=S.manifest.summary;$("#records").textContent=Number(x.records).toLocaleString("ar-SA");$("#unique").textContent=Number(x.unique_numeric_feature_numbers).toLocaleString("ar-SA");$("#high").textContent=Number(x.maximum_numeric_feature_number).toLocaleString("ar-SA");$("#branches").textContent=Number(x.branch_count).toLocaleString("ar-SA");$("#domain").insertAdjacentHTML("beforeend",domains().map(d=>`<option value="${H(d)}">${H(d)}</option>`).join(""));render()}
+["#search","#evidence","#domain"].forEach(s=>$(s).addEventListener("input",apply));$("#clear").addEventListener("click",()=>{$("#search").value="";$("#evidence").value="";$("#domain").value="";apply()});$("#prev").addEventListener("click",()=>{S.page--;render()});$("#next").addEventListener("click",()=>{S.page++;render()});load().catch(e=>{$("#table").innerHTML='<tr><td colspan="6">تعذر تحميل السجل التاريخي.</td></tr>';console.error(e)});
+</script>
+</body>
+</html>
