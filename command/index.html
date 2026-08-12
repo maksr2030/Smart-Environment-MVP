@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="مركز القيادة التنفيذي العام للمنصة العالمية للبيئة الذكية وإدارة الموارد الطبيعية" />
+    <title>مركز القيادة الوطني | Smart Environment MVP</title>
+    <link rel="stylesheet" href="../app/styles.css" />
+    <link rel="stylesheet" href="../app/command-center.css" />
+    <style>
+      .command-shell-link { display: block; margin-top: 8px; padding: 11px 14px; border: 1px solid var(--line); border-radius: 9px; background: white; color: var(--navy); text-decoration: none; font-size: 12px; font-weight: 700; }
+      .command-shell-link:hover { border-color: var(--teal); color: var(--teal); }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand-block">
+        <div class="brand-mark">ب</div>
+        <div>
+          <p class="eyebrow">GLOBAL SMART AI ENVIRONMENT</p>
+          <h1>المنصة العالمية للبيئة الذكية وإدارة الموارد الطبيعية</h1>
+          <p class="subtitle">Executive National Command Center · Public MVP Demonstrator</p>
+        </div>
+      </div>
+      <div class="header-status">
+        <span class="status-dot"></span>
+        <span>نموذج عرض عام</span>
+      </div>
+    </header>
+
+    <div class="notice">
+      مركز القيادة هذا واجهة عرض تنفيذية عامة. المؤشرات التشغيلية المعروضة اصطناعية ولا تمثل بيانات حكومية فعلية أو اعتماداً إنتاجياً.
+    </div>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <nav aria-label="التنقل الرئيسي"></nav>
+        <div>
+          <a class="command-shell-link" href="../app/">فتح منصة التشغيل الكاملة</a>
+          <a class="command-shell-link" href="../app/">السجل والمعمارية والمهام</a>
+          <div class="sidebar-footer">
+            <span>الملكية الفكرية محفوظة</span>
+            <span>Public Executive Demonstrator</span>
+          </div>
+        </div>
+      </aside>
+      <section class="content"></section>
+    </main>
+
+    <footer class="footer">Global Smart AI Environment and Natural Resource Management Platform · Public MVP Demonstrator</footer>
+    <script>
+      function showView(viewName) {
+        if (viewName === 'missions') window.location.href = '../app/';
+      }
+    </script>
+    <script src="../app/command-center.js" defer></script>
+  </body>
+</html>

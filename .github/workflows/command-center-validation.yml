@@ -1,0 +1,47 @@
+name: Executive Command Center Validation
+
+on:
+  push:
+    branches:
+      - "mvp-live-command-center-*"
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate-executive-command-center:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Validate public MVP layers
+        run: |
+          python3 - <<'PY'
+          import runpy
+          paths = [
+              "tests/test_public_catalog.py",
+              "tests/test_capability_architecture.py",
+              "tests/test_mission_runtime.py",
+              "tests/test_executive_command_center.py",
+          ]
+          total = 0
+          for path in paths:
+              module = runpy.run_path(path)
+              tests = sorted((name, value) for name, value in module.items() if name.startswith("test_") and callable(value))
+              for name, test in tests:
+                  test()
+                  total += 1
+                  print(f"PASS {path}::{name}")
+          print(f"Validated {total} public MVP tests")
+          PY
+
+      - name: Validate JavaScript syntax
+        run: |
+          node --check app/app.js
+          node --check app/capabilities.js
+          node --check app/modules.js
+          node --check app/command-center.js
