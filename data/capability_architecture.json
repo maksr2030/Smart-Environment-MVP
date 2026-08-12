@@ -1,0 +1,123 @@
+{
+  "architecture_version": "1.0",
+  "architecture_type": "public-capability-architecture",
+  "classification_method": "A feature is associated with every national capability module whose domain_patterns occur in its public domain metadata. Records without a direct domain match are assigned to the shared intelligence module as a public MVP fallback; this is a demonstrator classification, not a replacement for the private canonical architecture.",
+  "rights_notice": "Public capability abstraction only. Proprietary algorithms, implementation sequences, integration contracts, evidence sources, decision policies, and protected engineering details are excluded.",
+  "operating_flow": [
+    {"step": 1, "ar": "الإشارة والرصد", "en": "Signal and Monitoring"},
+    {"step": 2, "ar": "تنظيم البيانات والتحقق", "en": "Data Organization and Validation"},
+    {"step": 3, "ar": "التحليل القطاعي والمتقاطع", "en": "Domain and Cross-Domain Analytics"},
+    {"step": 4, "ar": "تقدير المخاطر والتنبؤ", "en": "Risk Assessment and Forecasting"},
+    {"step": 5, "ar": "المحاكاة واختبار التدخل", "en": "Simulation and Intervention Testing"},
+    {"step": 6, "ar": "صياغة التوصية والقرار", "en": "Recommendation and Decision Formulation"},
+    {"step": 7, "ar": "التنسيق والاستجابة", "en": "Coordination and Response"},
+    {"step": 8, "ar": "التتبع والتعلم المؤسسي", "en": "Traceability and Institutional Learning"}
+  ],
+  "horizontal_layers": [
+    {"id": "HL-01", "ar": "طبقة جمع البيانات والتكامل", "en": "Data Acquisition and Integration", "purpose_ar": "ربط مصادر الرصد والبيانات المؤسسية والعلمية ضمن نموذج تبادل عام قابل للتوسع."},
+    {"id": "HL-02", "ar": "طبقة الذكاء الجغرافي والتمثيل المكاني", "en": "Geospatial Intelligence and Spatial Representation", "purpose_ar": "توحيد الإشارات البيئية مكانياً لدعم التحليل الوطني والإقليمي والمحلي."},
+    {"id": "HL-03", "ar": "طبقة التحليلات والذكاء الاصطناعي", "en": "Analytics and Artificial Intelligence", "purpose_ar": "تحويل البيانات إلى مؤشرات وتحليلات وتوقعات عامة قابلة للمراجعة."},
+    {"id": "HL-04", "ar": "طبقة المخاطر والمحاكاة", "en": "Risk and Simulation", "purpose_ar": "اختبار الضغوط والتدخلات والبدائل قبل صياغة التوصية."},
+    {"id": "HL-05", "ar": "طبقة الحوكمة ودعم القرار", "en": "Governance and Decision Support", "purpose_ar": "ربط التحليل بالتوصية والقرار البشري المسؤول وحدود الاعتماد."},
+    {"id": "HL-06", "ar": "طبقة الذاكرة المؤسسية والتتبع", "en": "Institutional Memory and Traceability", "purpose_ar": "حفظ مسار الإشارة والتحليل والافتراضات والمخرجات لأغراض المراجعة والتعلم."}
+  ],
+  "modules": [
+    {
+      "id": "NC-01",
+      "ar": "القيادة البيئية الوطنية وصناعة القرار",
+      "en": "National Environmental Command and Decision",
+      "mandate_ar": "تجميع الرؤية البيئية الوطنية، المخاطر العابرة للقطاعات، الأولويات، التقارير والتوصيات في مسار قرار واحد قابل للمراجعة.",
+      "domain_patterns": ["الحوكمة ودعم القرار", "الحوكمة", "دعم القرار"],
+      "capability_examples_ar": ["لوحات وطنية", "تقدير المخاطر المركبة", "مذكرات القرار", "متابعة مؤشرات الأداء"]
+    },
+    {
+      "id": "NC-02",
+      "ar": "الحياة الفطرية والتنوع الأحيائي",
+      "en": "Wildlife and Biodiversity Intelligence",
+      "mandate_ar": "رصد الأنواع والموائل والعلاقات البيئية والضغوط والمخاطر ودعم الحماية والاستعادة والتوازن الأحيائي.",
+      "domain_patterns": ["الحياة الفطرية", "الحياة البرية", "التنوع الحيوي", "التنوع الأحيائي", "التنوع البيولوجي"],
+      "capability_examples_ar": ["رصد الأنواع", "حماية الأنواع المهددة", "تحليل الموائل", "إدارة الأنواع الغازية"]
+    },
+    {
+      "id": "NC-03",
+      "ar": "المحميات والموائل والاستعادة البيئية",
+      "en": "Protected Areas, Habitats and Ecological Restoration",
+      "mandate_ar": "إدارة المحميات والموائل الحساسة، استعادة النظم البيئية، وقياس أثر تدخلات الحماية وإعادة التأهيل.",
+      "domain_patterns": ["المحميات", "الموائل", "الاستعادة البيئية", "إعادة التأهيل"],
+      "capability_examples_ar": ["إدارة المحميات", "تقييم سلامة الموائل", "استعادة التوازن البيئي", "أولوية مواقع الحماية"]
+    },
+    {
+      "id": "NC-04",
+      "ar": "المياه والمياه الجوفية",
+      "en": "Water and Groundwater Intelligence",
+      "mandate_ar": "رصد جودة وكمية المياه، الإجهاد المائي، المياه الجوفية، مصادر التلوث، المعالجة وإعادة الاستخدام ودعم التخطيط المائي.",
+      "domain_patterns": ["المياه وإدارتها", "المياه الجوفية", "المياه", "الموارد المائية"],
+      "capability_examples_ar": ["جودة المياه", "المياه الجوفية", "إعادة الاستخدام", "التنبؤ بالإجهاد المائي"]
+    },
+    {
+      "id": "NC-05",
+      "ar": "الهواء والمناخ والانبعاثات",
+      "en": "Air, Climate and Emissions Intelligence",
+      "mandate_ar": "رصد جودة الهواء والانبعاثات والتغير المناخي، تحليل مصادر الضغط، التنبؤ بالتعرض ودعم خطط الخفض والتكيف.",
+      "domain_patterns": ["الهواء", "المناخ", "الانبعاثات", "الأرصاد"],
+      "capability_examples_ar": ["جودة الهواء", "تحليل الانبعاثات", "توقع التأثير المناخي", "دعم خطط التكيف"]
+    },
+    {
+      "id": "NC-06",
+      "ar": "النفايات والتلوث والاقتصاد الدائري",
+      "en": "Waste, Pollution and Circular Economy",
+      "mandate_ar": "إدارة النفايات والتلوث عبر دورة الحياة، دعم المنع والفرز والمعالجة وإعادة التدوير واسترداد الموارد والقيمة.",
+      "domain_patterns": ["النفايات", "التلوث", "الاقتصاد الدائري", "المخلفات"],
+      "capability_examples_ar": ["إدارة النفايات", "تتبع الملوثات", "إعادة التدوير", "استرداد الموارد"]
+    },
+    {
+      "id": "NC-07",
+      "ar": "الزراعة والتربة والأمن الغذائي",
+      "en": "Agriculture, Soil and Food Security",
+      "mandate_ar": "دعم استدامة الأراضي الزراعية والتربة والإنتاج، تحليل الضغوط البيئية على الزراعة وربطها بالأمن الغذائي والموارد.",
+      "domain_patterns": ["الزراعة", "التربة", "الأمن الغذائي", "الأراضي الزراعية"],
+      "capability_examples_ar": ["جودة التربة", "إنتاجية الأراضي", "مخاطر التدهور", "الاستدامة الزراعية"]
+    },
+    {
+      "id": "NC-08",
+      "ar": "التصحر والغطاء النباتي والأراضي",
+      "en": "Desertification, Vegetation and Land Intelligence",
+      "mandate_ar": "رصد الغطاء النباتي وتدهور الأراضي والتصحر والتعرية، وتوجيه الاستعادة والتشجير والاستخدام المستدام للأراضي.",
+      "domain_patterns": ["التصحر", "الغطاء النباتي", "الأراضي", "التعرية", "التشجير"],
+      "capability_examples_ar": ["مراقبة الغطاء النباتي", "تحليل التصحر", "استعادة الأراضي", "توجيه التشجير"]
+    },
+    {
+      "id": "NC-09",
+      "ar": "المخاطر البيئية والحرائق والطوارئ والكوارث",
+      "en": "Environmental Hazards, Fire, Emergency and Disaster Intelligence",
+      "mandate_ar": "الإنذار المبكر، تقدير المخاطر، تنسيق الموارد والاستجابة للحرائق والفيضانات والعواصف والجفاف والحوادث البيئية.",
+      "domain_patterns": ["الحرائق", "الطوارئ", "الكوارث", "المخاطر", "الفيضانات", "الجفاف"],
+      "capability_examples_ar": ["إنذار مبكر", "إدارة حرائق", "تخصيص موارد الاستجابة", "تقدير أثر الكوارث"]
+    },
+    {
+      "id": "NC-10",
+      "ar": "التخطيط الحضري والبنية التحتية البيئية",
+      "en": "Urban Planning and Environmental Infrastructure",
+      "mandate_ar": "إدخال الاعتبارات البيئية في تخطيط المدن والبنية التحتية والمطارات والموانئ والمجمعات والمشاريع التنموية.",
+      "domain_patterns": ["التخطيط والبنية التحتية", "البنية التحتية", "المدن", "الحضر", "المطارات", "الموانئ"],
+      "capability_examples_ar": ["تقييم الأثر المكاني", "التخطيط البيئي الحضري", "استدامة البنية التحتية", "دعم التوسع المسؤول"]
+    },
+    {
+      "id": "NC-11",
+      "ar": "الطاقة والاستدامة الصناعية",
+      "en": "Energy and Industrial Sustainability",
+      "mandate_ar": "ربط الطاقة والانبعاثات والتلوث الصناعي وكفاءة الموارد ضمن رؤية بيئية قابلة للقياس ودعم التحول والاستدامة.",
+      "domain_patterns": ["الطاقة", "الصناعة", "المصانع", "الاستدامة الصناعية"],
+      "capability_examples_ar": ["كفاءة الطاقة", "خفض الانبعاثات", "إدارة الأثر الصناعي", "استرداد الموارد"]
+    },
+    {
+      "id": "NC-12",
+      "ar": "البيانات والبحث والتكامل والخدمات المشتركة",
+      "en": "Data, Research, Integration and Shared Environmental Intelligence",
+      "mandate_ar": "توفير القدرات المشتركة للبيانات والبحث والتحليل والتكامل والتقارير والخدمات التي تدعم جميع الوحدات القطاعية.",
+      "domain_patterns": ["البيانات", "البحث", "الخدمات", "التكامل", "البيئة والموارد الطبيعية"],
+      "capability_examples_ar": ["إدارة البيانات", "البحث العلمي", "التقارير", "التكاملات المؤسسية"]
+    }
+  ],
+  "fallback_module_id": "NC-12"
+}

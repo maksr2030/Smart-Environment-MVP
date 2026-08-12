@@ -1,0 +1,73 @@
+.capability-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+  margin-bottom: 18px;
+}
+.capability-metric {
+  min-height: 116px;
+  padding: 17px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.capability-metric span,
+.capability-metric small { color: var(--muted); font-size: 10px; }
+.capability-metric strong { color: var(--navy); font-size: 27px; }
+.capability-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
+}
+.capability-card {
+  min-height: 205px;
+  padding: 17px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease;
+}
+.capability-card:hover,
+.capability-card.selected { transform: translateY(-2px); border-color: var(--teal); }
+.capability-card-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.capability-id { color: var(--teal); font-size: 10px; font-weight: 700; letter-spacing: .08em; }
+.capability-count { min-width: 48px; padding: 5px 8px; border-radius: 99px; background: var(--teal-light); color: var(--teal); text-align: center; font-size: 10px; font-weight: 700; }
+.capability-card h3 { margin: 9px 0 3px; color: var(--navy); font-size: 15px; }
+.capability-card .capability-en { margin: 0 0 9px; color: #829293; font-size: 9px; direction: ltr; text-align: left; }
+.capability-card .capability-mandate { margin: 0; color: var(--muted); font-size: 11px; }
+.capability-tag-list { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
+.capability-tag { padding: 4px 7px; border: 1px solid var(--line); border-radius: 99px; color: #557070; background: #f7faf8; font-size: 9px; }
+.capability-section-gap { margin-top: 16px; }
+.horizontal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.horizontal-card { padding: 14px; border: 1px solid var(--line); border-radius: 9px; background: white; }
+.horizontal-card b { display: block; color: var(--navy); font-size: 12px; }
+.horizontal-card small { display: block; margin: 2px 0 6px; color: var(--teal); font-size: 9px; direction: ltr; text-align: right; }
+.horizontal-card p { margin: 0; color: var(--muted); font-size: 10px; }
+.operating-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; }
+.flow-step { position: relative; min-height: 96px; padding: 13px; border: 1px solid var(--line); border-radius: 9px; background: white; }
+.flow-step span { display: block; color: var(--teal); font-size: 9px; font-weight: 700; }
+.flow-step b { display: block; margin: 5px 0 2px; color: var(--navy); font-size: 11px; }
+.flow-step small { color: var(--muted); font-size: 9px; direction: ltr; }
+.capability-detail { margin-top: 16px; }
+.capability-detail-header { display: flex; justify-content: space-between; gap: 18px; align-items: flex-start; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
+.capability-detail h3 { margin: 0 0 4px; color: var(--navy); font-size: 19px; }
+.capability-detail p { color: var(--muted); font-size: 11px; }
+.capability-sample-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 13px; }
+.capability-sample { padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: white; }
+.capability-sample b { display: block; color: var(--teal); font-size: 9px; }
+.capability-sample span { display: block; margin-top: 3px; color: var(--text); font-size: 10px; }
+.capability-disclosure { margin-top: 10px; color: #7a898a; font-size: 9px; }
+@media (max-width: 1100px) {
+  .capability-grid { grid-template-columns: repeat(2, 1fr); }
+  .horizontal-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px) {
+  .capability-metrics, .capability-grid, .horizontal-grid, .operating-flow, .capability-sample-list { grid-template-columns: 1fr; }
+  .capability-detail-header { display: block; }
+}
