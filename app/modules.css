@@ -1,0 +1,54 @@
+.mission-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, .75fr) minmax(0, 1.45fr);
+  gap: 16px;
+}
+.mission-control { background: #f9fbf8; }
+.mission-select-label { display: grid; gap: 5px; color: var(--muted); font-size: 10px; }
+.mission-select-label select { width: 100%; height: 42px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: white; color: var(--navy); }
+.mission-context { margin: 12px 0 18px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: white; }
+.mission-context b { display: block; color: var(--navy); font-size: 12px; }
+.mission-context small { color: var(--muted); font-size: 10px; }
+.mission-slider { display: grid; grid-template-columns: 1fr auto; gap: 8px; margin-top: 17px; font-size: 11px; }
+.mission-slider span { color: var(--navy); }
+.mission-slider output { color: var(--teal); font-weight: 700; }
+.mission-slider input { grid-column: 1 / -1; width: 100%; accent-color: var(--teal); }
+.mission-runtime-result { min-height: 520px; }
+.mission-runtime-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.mission-runtime-head h3 { margin: 0 0 3px; color: var(--navy); font-size: 20px; }
+.mission-runtime-head p { margin: 0; color: var(--muted); font-size: 10px; }
+.mission-risk-card { min-width: 140px; padding: 11px 14px; border-radius: 9px; background: var(--navy); color: white; text-align: center; }
+.mission-risk-card span { display: block; color: #bcd0d1; font-size: 9px; }
+.mission-risk-card strong { display: block; font-size: 30px; line-height: 1.1; }
+.mission-risk-card small { color: #8bd3c7; font-size: 9px; }
+.mission-summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; margin: 14px 0; }
+.mission-summary-grid > div { padding: 11px; border: 1px solid var(--line); border-radius: 8px; background: white; }
+.mission-summary-grid span, .mission-summary-grid strong { display: block; }
+.mission-summary-grid span { color: var(--muted); font-size: 9px; }
+.mission-summary-grid strong { margin-top: 3px; color: var(--navy); font-size: 13px; }
+.mission-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 11px; }
+.mission-box { padding: 13px; border: 1px solid var(--line); border-radius: 9px; background: white; }
+.mission-box h4 { margin: 0 0 8px; color: var(--teal); font-size: 11px; }
+.mission-box ul { margin: 0; padding-right: 17px; }
+.mission-box li { margin-bottom: 4px; color: var(--muted); font-size: 10px; }
+.mission-module-list { display: flex; flex-wrap: wrap; gap: 5px; }
+.mission-module-chip { padding: 5px 7px; border-radius: 99px; background: var(--teal-light); color: var(--teal); font-size: 9px; }
+.mission-trace { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px; }
+.mission-trace-step { padding: 10px; border-radius: 8px; background: #f3f8f6; }
+.mission-trace-step b { display: block; color: var(--navy); font-size: 10px; }
+.mission-trace-step small { color: var(--muted); font-size: 9px; }
+.mission-feature-evidence { margin-top: 12px; }
+.mission-feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; }
+.mission-feature-item { padding: 9px; border: 1px solid var(--line); border-radius: 7px; background: white; }
+.mission-feature-item b { display: block; color: var(--teal); font-size: 8px; }
+.mission-feature-item span { display: block; margin-top: 2px; color: var(--text); font-size: 9px; }
+.mission-disclaimer { margin-top: 12px; color: #7d8d8d; font-size: 9px; }
+@media (max-width: 950px) {
+  .mission-layout { grid-template-columns: 1fr; }
+  .mission-summary-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 650px) {
+  .mission-summary-grid, .mission-columns, .mission-trace, .mission-feature-grid { grid-template-columns: 1fr; }
+  .mission-runtime-head { display: block; }
+  .mission-risk-card { margin-top: 10px; }
+}
