@@ -1,0 +1,46 @@
+name: Capability Architecture Validation
+
+on:
+  push:
+    branches:
+      - "mvp-capability-architecture-*"
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate-capability-architecture:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate catalogue integrity
+        run: |
+          python3 - <<'PY'
+          import runpy
+          module = runpy.run_path("tests/test_public_catalog.py")
+          tests = sorted((name, value) for name, value in module.items() if name.startswith("test_") and callable(value))
+          for name, test in tests:
+              test()
+              print(f"PASS {name}")
+          PY
+
+      - name: Validate capability architecture
+        run: |
+          python3 - <<'PY'
+          import runpy
+          module = runpy.run_path("tests/test_capability_architecture.py")
+          tests = sorted((name, value) for name, value in module.items() if name.startswith("test_") and callable(value))
+          for name, test in tests:
+              test()
+              print(f"PASS {name}")
+          PY
+
+      - name: Validate JavaScript syntax
+        run: |
+          node --check app/app.js
+          node --check app/capabilities.js
