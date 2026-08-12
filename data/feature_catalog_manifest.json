@@ -2,10 +2,10 @@
   "catalogue_type": "public-descriptive-feature-catalogue",
   "rights_notice": "Descriptive scope only; no production or revenue claim is implied.",
   "summary": {
-    "records": 1067,
-    "unique_feature_numbers": 710,
+    "records": 1104,
+    "unique_feature_numbers": 745,
     "minimum_feature_number": 1,
-    "maximum_feature_number": 725,
+    "maximum_feature_number": 1002,
     "number_gaps": [
       520,
       521,
@@ -23,6 +23,11 @@
       698,
       724
     ],
+    "number_gaps_scope": "Legacy canonical register 1-725 only; recovered historical numbering above 725 is sparse and preserved without inventing missing features.",
+    "recovered_delta_records": 37,
+    "recovered_delta_unique_feature_numbers": 35,
+    "recovered_delta_minimum_feature_number": 837,
+    "recovered_delta_maximum_feature_number": 1002,
     "redactions": [
       "descriptive implementation detail",
       "embedded code",
@@ -31,7 +36,7 @@
       "contact details"
     ]
   },
-  "record_count": 1067,
+  "record_count": 1104,
   "chunk_size": 50,
   "chunks": [
     "part-001.json",
@@ -55,6 +60,10 @@
     "part-019.json",
     "part-020.json",
     "part-021.json",
-    "part-022.json"
+    "part-022.json",
+    "part-023.json",
+    "part-024.json",
+    "part-025.json",
+    "part-026.json"
   ]
 }

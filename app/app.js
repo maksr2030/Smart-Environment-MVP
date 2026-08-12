@@ -107,7 +107,6 @@ function renderMonitoring() {
 function updateRangeLabels() {
   [["pollutionInput", "pollutionValue"], ["waterInput", "waterValue"], ["conservationInput", "conservationValue"]].forEach(([input, output]) => { $("#" + output).textContent = `${$("#" + input).value}%`; });
 }
-
 function runSimulation() {
   const pollution = Number($("#pollutionInput").value);
   const waterStress = Number($("#waterInput").value);
@@ -160,7 +159,7 @@ function applyFeatureFilters() {
   const domain = $("#domainFilter").value;
   const type = $("#typeFilter").value;
   state.filteredFeatures = state.catalogue.features.filter((feature) => {
-    const haystack = [feature.title, feature.english_title, feature.description, feature.objectives, feature.benefits, feature.record_key].join(" ").toLocaleLowerCase("ar");
+    const haystack = [feature.title, feature.english_title, feature.public_description, feature.public_value, feature.record_key, feature.recovery_status].join(" ").toLocaleLowerCase("ar");
     const featureDomains = String(feature.domain || "").split("؛").map((item) => domainAliases[item.trim()] || item.trim());
     return (!search || haystack.includes(search)) && (!domain || featureDomains.includes(domain)) && (!type || feature.function_type === type);
   });
@@ -185,7 +184,7 @@ function renderFeatureTable() {
 function renderFeatureDetail() {
   const feature = state.selectedFeature;
   if (!feature) { $("#featureDetail").innerHTML = "<p>اختر سجلًا لعرض تفاصيله.</p>"; return; }
-  const fields = [["المعرف العام", feature.record_key || feature.public_record_id], ["نوع السجل", feature.record_type], ["المجال", feature.domain], ["نوع الوظيفة", feature.function_type], ["الوصف العام", feature.public_description], ["القيمة الوظيفية", feature.public_value], ["تصنيفات القدرة", (feature.capability_tags || []).join(" · ")], ["حدود الإصدار العام", feature.public_scope_note]];
+  const fields = [["المعرف العام", feature.record_key || feature.public_record_id], ["نوع السجل", feature.record_type], ["المجال", feature.domain], ["نوع الوظيفة", feature.function_type], ["حالة الاسترداد", feature.recovery_status], ["حالة التنفيذ", feature.implementation_status], ["الوصف العام", feature.public_description], ["القيمة الوظيفية", feature.public_value], ["تصنيفات القدرة", (feature.capability_tags || []).join(" · ")], ["حدود الإصدار العام", feature.public_scope_note]];
   $("#featureDetail").innerHTML = `<p class="section-kicker">PUBLIC FEATURE PROFILE</p><h3 class="detail-title">${escapeHtml(feature.title || "غير مسمى")}</h3><div class="detail-grid">${fields.map(([label, value]) => `<div class="detail-item"><b>${label}</b><span>${escapeHtml(value || "غير متوفر في السجل")}</span></div>`).join("")}</div>`;
 }
 
@@ -197,7 +196,7 @@ function initRegistry() {
   $("#prevPage").addEventListener("click", () => { state.page -= 1; renderFeatureTable(); });
   $("#nextPage").addEventListener("click", () => { state.page += 1; renderFeatureTable(); });
   renderFeatureTable();
-  $("#catalogStatus").textContent = "السجل جاهز · 1,067 سجلًا";
+  $("#catalogStatus").textContent = `السجل جاهز · ${state.catalogue.features.length.toLocaleString("ar-SA")} سجلًا`;
 }
 
 function init() {
