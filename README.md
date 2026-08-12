@@ -24,7 +24,7 @@
 حالة الاسترداد تعني توثيق وجود السجل ضمن المواد التاريخية المتاحة، ولا تعني
 أن كل وظيفة منشورة إنتاجياً أو متصلة بأنظمة حكومية فعلية.
 
-للاطلاع على الشرح العربي الكامل، راجع [الملخص العام للمنصة](docs/public-platform-overview.md).
+للاطلاع على الوصف العربي الشامل، راجع [الوصف العربي الشامل للمنصة](docs/public-platform-overview.md).
 
 وللاطلاع على السجل العام وملحق الاسترداد، راجع [سجل الميزات العام](FEATURES.md).
 
@@ -58,6 +58,8 @@ functional scope and recovery status; it must not be interpreted as proof that
 every function is already deployed in production or connected to government
 systems.
 
+For the comprehensive English description, read the [Full English Platform Overview](docs/public-platform-overview-en.md).
+
 ## Run locally
 
 From the repository root:
@@ -83,7 +85,7 @@ internal evidence filenames, contact details, and embedded code samples are
 excluded from this public repository.
 
 For a fuller public explanation of the platform, its domains, capability layers,
-and disclosure boundary, read [the public platform overview](docs/public-platform-overview.md).
+and disclosure boundary, read the [Arabic comprehensive overview](docs/public-platform-overview.md) or the [Full English Platform Overview](docs/public-platform-overview-en.md).
 
 ## Architecture
 
